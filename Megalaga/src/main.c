@@ -4,6 +4,7 @@
 
 #include <game/entities/entity.c>
 
+#include <game/score/score.c>
 #include <game/background/background.c>
 #include <game/entities/bullet/bullet.c>
 #include <game/entities/player/player.c>
@@ -13,6 +14,11 @@ void myJoyHandler( u16 joy, u16 changed, u16 state)
 {
 	if (joy == JOY_1)
 	{
+		if(state & BUTTON_START) {
+			if (game_on == FALSE) {
+				GAME_start();
+			}
+		}
 		PLAYER_input(joy, changed, state);
 	}
 }
@@ -35,12 +41,17 @@ int main()
 	
 	while(1)
 	{  		
-		BACKGROUND_update();
-		BULLET_update();
-		PLAYER_update();
-		ENEMIES_update();
+		if(game_on) {
+			BACKGROUND_update();
+			BULLET_update();
+			PLAYER_update();
+			ENEMIES_update();
+			SPR_update();
+		} else {
+			GAME_showtext(msg_start);
+			SPR_clear();
+		}
 
-		SPR_update();
 		VDP_waitVSync();
 	}
 	return (0);
