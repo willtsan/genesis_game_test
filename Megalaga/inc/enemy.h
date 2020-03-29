@@ -5,7 +5,7 @@
 #include <entity.h>
 #include <game.h>
 
-extern Entity enemies[6];
+extern Entity enemies[MAX_ENEMIES];
 extern u16 enemiesLeft;
 
 void ENEMIES_create();

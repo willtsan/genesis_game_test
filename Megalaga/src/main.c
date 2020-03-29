@@ -15,7 +15,7 @@ void myJoyHandler( u16 joy, u16 changed, u16 state)
 	if (joy == JOY_1)
 	{
 		if(state & BUTTON_START) {
-			if (GAME_ON == 0) {
+			if (GAME_ON == FALSE) {
 				GAME_start();
 			}
 		}
@@ -41,7 +41,7 @@ int main()
 	
 	while(1)
 	{  		
-		if(GAME_ON == 1) {
+		if(GAME_ON == TRUE) {
 			BACKGROUND_update();
 			BULLET_update();
 			PLAYER_update();

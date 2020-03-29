@@ -5,7 +5,7 @@
 #include <entity.h>
 #include <resources.h>
 
-Entity enemies[6];
+Entity enemies[MAX_ENEMIES];
 u16 enemiesLeft = 0;
 
 

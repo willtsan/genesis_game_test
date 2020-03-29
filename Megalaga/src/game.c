@@ -6,15 +6,15 @@ int ANIM_MOVE = 1;
 int MAX_BULLETS = 3;
 int RIGHT_EDGE = 320;
 int LEFT_EDGE = 0;
-int MAX_ENEMIES = 6;
+const int MAX_ENEMIES = 6;
 
 char MSG_START[22] = "Press START to Begin!";
 char MSG_RESET[22] = "Press START to Reset!";
 const int SCROLLSPEED = 2;
-int GAME_ON = 0;
+bool GAME_ON = FALSE;
 
 void GAME_start() {
-    GAME_ON = 1;
+    GAME_ON = TRUE;
     GAME_cleartext();
 }
 
