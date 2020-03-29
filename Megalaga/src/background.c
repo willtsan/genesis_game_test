@@ -1,3 +1,5 @@
+#include "background.h"
+
 #include <genesis.h>
 #include <resources.h>
 

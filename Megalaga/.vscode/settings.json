@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "genesis.h": "c"
+        "genesis.h": "c",
+        "game.C": "cpp",
+        "types.h": "c",
+        "resources.h": "c",
+        "background.h": "c",
+        "player.h": "c"
     }
 }

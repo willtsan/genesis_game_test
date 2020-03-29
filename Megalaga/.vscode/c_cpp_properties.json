@@ -6,7 +6,8 @@
                 "${GDK}/inc",
                 "${GDK}/res",
                 "./res",
-                "./src"
+                "./inc",
+                "./"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,

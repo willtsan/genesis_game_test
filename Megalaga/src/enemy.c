@@ -1,5 +1,11 @@
-Entity enemies[MAX_ENEMIES];
+#include "enemy.h"
 
+#include <genesis.h>
+#include <game.h>
+#include <entity.h>
+#include <resources.h>
+
+Entity enemies[6];
 u16 enemiesLeft = 0;
 
 

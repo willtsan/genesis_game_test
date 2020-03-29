@@ -1,21 +1,21 @@
 #include <genesis.h>
 #include <resources.h>
-#include <system_vars.h>
+#include <game.h>
 
-#include <game/entities/entity.c>
+#include <entity.h>
 
-#include <game/score/score.c>
-#include <game/background/background.c>
-#include <game/entities/bullet/bullet.c>
-#include <game/entities/player/player.c>
-#include <game/entities/enemy/enemy.c>
+#include <background.h>
+#include <score.h>
+#include <player.h>
+#include <bullet.h>
+#include <enemy.h>
 
 void myJoyHandler( u16 joy, u16 changed, u16 state)
 {
 	if (joy == JOY_1)
 	{
 		if(state & BUTTON_START) {
-			if (game_on == FALSE) {
+			if (GAME_ON == 0) {
 				GAME_start();
 			}
 		}
@@ -41,14 +41,14 @@ int main()
 	
 	while(1)
 	{  		
-		if(game_on) {
+		if(GAME_ON == 1) {
 			BACKGROUND_update();
 			BULLET_update();
 			PLAYER_update();
 			ENEMIES_update();
 			SPR_update();
 		} else {
-			GAME_showtext(msg_start);
+			GAME_showtext(MSG_START);
 			SPR_clear();
 		}
 

@@ -1,14 +1,4 @@
-typedef struct {
-	int x;
-	int y;
-	int w;
-	int h;
-	int velx;
-	int vely;
-	int health;
-	Sprite* sprite;
-	char name[10];
-} Entity;
+#include "entity.h"
 
 void ENTITY_kill(Entity* e){
 	e->health = 0;

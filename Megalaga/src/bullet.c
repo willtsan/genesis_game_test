@@ -1,11 +1,17 @@
-Entity bullets[MAX_BULLETS];
+#include "bullet.h"
 
+#include <genesis.h>
+#include <entity.h>
+#include <game.h>
+#include <resources.h>
+
+Entity bullets[3];
 u16 bulletsOnScreen = 0;
 
 void BULLET_create() {
     /*Create all bullet sprites*/
     Entity* b = bullets;
-    for(i = 0; i < MAX_BULLETS; i++){
+    for(int i = 0; i < MAX_BULLETS; i++){
         b->x = 0;
         b->y = -10;
         b->w = 8;

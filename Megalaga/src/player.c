@@ -1,3 +1,9 @@
+#include "player.h"
+#include <genesis.h>
+#include <resources.h>
+#include <game.h>
+#include <bullet.h>
+
 Entity player = {
     0, 
     0, 
