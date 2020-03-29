@@ -3,12 +3,13 @@
 
 #include <genesis.h>
 
+#define MAX_ENEMIES 6
+#define MAX_BULLETS 3
+
 extern int ANIM_STRAIGHT;
 extern int ANIM_MOVE;
-extern const int MAX_ENEMIES;
 extern int RIGHT_EDGE;
 extern int LEFT_EDGE;
-extern int MAX_BULLETS;
 
 extern char MSG_START[22];
 extern char MSG_RESET[22];

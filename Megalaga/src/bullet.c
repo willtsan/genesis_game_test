@@ -5,7 +5,7 @@
 #include <game.h>
 #include <resources.h>
 
-Entity bullets[3];
+Entity bullets[MAX_BULLETS];
 u16 bulletsOnScreen = 0;
 
 void BULLET_create() {

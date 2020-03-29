@@ -3,9 +3,10 @@
 
 #include <genesis.h>
 #include <entity.h>
+#include <game.h>
 
 extern u16 bulletsOnScreen;
-extern Entity bullets[3];
+extern Entity bullets[MAX_BULLETS];
 
 void BULLET_create();
 void BULLET_update();
