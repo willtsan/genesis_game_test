@@ -10,5 +10,6 @@ extern Entity bullets[MAX_BULLETS];
 
 void BULLET_create();
 void BULLET_update();
+void BULLET_destroy(Entity *b);
 
 #endif 

@@ -4,6 +4,8 @@
 #include <game.h>
 #include <entity.h>
 #include <resources.h>
+#include <bullet.h>
+#include <collision.h>
 
 Entity enemies[MAX_ENEMIES];
 u16 enemiesLeft = 0;
@@ -28,10 +30,22 @@ void ENEMIES_create() {
 
 void ENEMIES_update() {
     u16 i = 0;
+    Entity *b;
     for(i = 0; i < MAX_ENEMIES; i++){
         Entity* e = &enemies[i];
 
         if(e->health > 0) {
+
+            for(u16 j = 0; j < MAX_BULLETS; j++) {
+                b = &bullets[j];
+                if(b->health > 0) {
+                    if(COLLISION_overlap(e, b)) {
+                        ENEMY_destroy(e);
+                        BULLET_destroy(b);
+                    }
+                }
+            }
+
             if( (e->x+e->w) > RIGHT_EDGE){
                 e->velx = -1;
             }
@@ -43,4 +57,9 @@ void ENEMIES_update() {
             SPR_setPosition(e->sprite,e->x,e->y);
         }        
     }
+}
+
+void ENEMY_destroy(Entity *e) {
+    e->health = 0;
+    ENTITY_kill(e);
 }

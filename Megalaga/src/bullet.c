@@ -24,6 +24,7 @@ void BULLET_create() {
 void BULLET_update() {
     u16 i = 0;
     Entity *b;
+    Entity *e;
     for(i = 0; i < MAX_BULLETS; i++){
         b = &bullets[i];
         if(b->health > 0){
@@ -31,8 +32,7 @@ void BULLET_update() {
             b->y += b->vely;
 
             if(b->y + b->h < 0){
-                ENTITY_kill(b);
-                bulletsOnScreen--;
+                BULLET_destroy(b);
             } else{
                 SPR_setPosition(b->sprite,b->x,b->y);
             }
@@ -41,5 +41,11 @@ void BULLET_update() {
             SPR_setPosition(b->sprite,b->x,b->y);
         }
     }
+}
+
+void BULLET_destroy(Entity *b) {
+    b->health = 0;
+    ENTITY_kill(b);
+    bulletsOnScreen--;
 }
 

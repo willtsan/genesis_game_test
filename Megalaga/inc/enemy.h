@@ -10,5 +10,6 @@ extern u16 enemiesLeft;
 
 void ENEMIES_create();
 void ENEMIES_update();
+void ENEMY_destroy(Entity *e);
 
 #endif
