@@ -1,5 +1,8 @@
 #include "game.h"
 #include <genesis.h>
+#include <score.h>
+#include <enemy.h>
+#include <bullet.h>
 
 int ANIM_STRAIGHT = 0;
 int ANIM_MOVE = 1;
@@ -13,11 +16,18 @@ bool GAME_ON = FALSE;
 
 void GAME_start() {
     GAME_ON = TRUE;
+    
     GAME_cleartext();
+    
+    SCORE_create();
+
+    ENEMIES_reset();
+    BULLETS_reset();
 }
 
 void GAME_end() {
-
+    GAME_ON = FALSE;
+    GAME_cleartext();
 }
 
 void GAME_showtext(char s[]) {

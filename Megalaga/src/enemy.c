@@ -6,6 +6,7 @@
 #include <resources.h>
 #include <bullet.h>
 #include <collision.h>
+#include <score.h>
 
 Entity enemies[MAX_ENEMIES];
 u16 enemiesLeft = 0;
@@ -62,4 +63,29 @@ void ENEMIES_update() {
 void ENEMY_destroy(Entity *e) {
     e->health = 0;
     ENTITY_kill(e);
+
+    SCORE_add(1);
+
+    if (enemiesLeft - 1 <= 0) {
+        GAME_end();
+    }
+    else {
+        enemiesLeft--;
+    }
+}
+
+void ENEMIES_reset() {
+    enemiesLeft = MAX_ENEMIES;
+
+    u16 i = 0;
+    for(i = 0; i < MAX_ENEMIES; i++){
+        Entity* e = &enemies[i];
+        ENTITY_revive(e);
+        e->x = i*32;
+        e->y = 32;
+        e->w = 16;
+        e->h = 16;
+        e->velx = 1;
+        e->health = 1;
+    }
 }
